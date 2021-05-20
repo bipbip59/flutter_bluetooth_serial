@@ -988,11 +988,9 @@ public class FlutterBluetoothSerialPlugin implements MethodCallHandler, RequestP
             ContextCompat.checkSelfPermission(registrar.activity(),
                 Manifest.permission.ACCESS_COARSE_LOCATION) 
                     != PackageManager.PERMISSION_GRANTED
-          || ContextCompat.checkSelfPermission(registrar.activity(),
-                    Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                                    ActivityCompat.requestPermissions(registrar.activity(),
-                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},
+        ) {
+            ActivityCompat.requestPermissions(registrar.activity(),
+                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                     REQUEST_COARSE_LOCATION_PERMISSIONS);
 
             pendingPermissionsEnsureCallbacks = callbacks;
